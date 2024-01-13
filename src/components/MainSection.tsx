@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Github, Instagram, Twitter } from 'lucide-react'
 import { Presentation } from './Presentation'
 import { Montserrat } from 'next/font/google'
