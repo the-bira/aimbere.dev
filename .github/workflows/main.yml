@@ -11,23 +11,26 @@ jobs:
 
     steps:
       - name: Checkout código
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
 
-      - name: Instalar dependências
-        run: npm install  # Ou npm install se estiver usando npm
+      - name: Instalar Vercel CLI
+        run: npm install --global vercel@latest  # Ou npm install se estiver usando npm
 
-      - name: Construir
-        run: npm run build:pre  # Ou npm run build se estiver usando npm
+      - name: Pull to vercel
+        run: vercel pull --environment=production --token ${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build para Vercel
+        run: vercel build --prod --token ${{ secrets.VERCEL_TOKEN }} --yes
 
       - name: Deploy para Vercel
-        run: npx vercel --token ${{ secrets.VERCEL_TOKEN }} --prod --yes
+        run: vercel deploy --prebuilt --prod --token ${{ secrets.VERCEL_TOKEN }}
 
-      - name: Deploy para Vercel
-        run: npx vercel --token ${{ secrets.VERCEL_TOKEN }} build
+      - name: Start server
+        run: npm run start:prod
 
       
