@@ -7,7 +7,7 @@ import { Media } from './collections/media'
 import { viteBundler } from '@payloadcms/bundler-vite'
 
 export default buildConfig({
-  serverURL: 'https://aimberedev.vercel.app',
+  serverURL: process.env.NEXT_PUBLIC_SERVER_URL!,
   collections: [
     Projects,
     Media
