@@ -11,7 +11,7 @@
     "copyfiles": "copyfiles -u 1 \"src/**/*.{html,css,scss,ttf,woff,woff2,eot,svg,png,jpg}\" dist/",
     "build:pre": "cross-env NODE_ENV=PRODUCTION npm run build:payload && npm run build:server && npm run copyfiles",
     "build": "cross-env NODE_ENV=PRODUCTION npm run build:pre && npm run build:next && next build",
-    "start:prod": "NEXT_BUILD=true node dist/server.js node dist/server.js",
+    "start:prod": "NEXT_BUILD=true node dist/server.js",
     "start": "cross-env PAYLOAD_CONFIG_PATH=dist/payload.config.js NODE_ENV=production node dist/server.js",
     "lint": "next lint",
     "start:build": "next"
