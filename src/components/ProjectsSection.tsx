@@ -7,7 +7,7 @@ interface Project {
   id: string | number
   name: string
   description: string
-  url?: string
+  url?: string | undefined
   github?: string
   image?: string
   createdAt?: string
@@ -25,7 +25,7 @@ const ProjectsSection = async () => {
 
   })
 
-  const Projects: Project[] = response.docs
+  const Projects: Project[] = response.docs as unknown as Project[]
 
   return (
     <Section className='justify-center mt-1 h-full'>
