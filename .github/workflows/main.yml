@@ -16,13 +16,13 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '14'
+          node-version: '18'
 
       - name: Instalar dependências
-        run: yarn install  # Ou npm install se estiver usando npm
+        run: npm install  # Ou npm install se estiver usando npm
 
       - name: Construir
-        run: yarn build  # Ou npm run build se estiver usando npm
+        run: npm run build  # Ou npm run build se estiver usando npm
 
       - name: Deploy para Vercel
         run: npx vercel --token ${{ secrets.VERCEL_TOKEN }}
