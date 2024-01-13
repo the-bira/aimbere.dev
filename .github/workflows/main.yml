@@ -30,7 +30,4 @@ jobs:
       - name: Deploy para Vercel
         run: vercel deploy --prebuilt --prod --token ${{ secrets.VERCEL_TOKEN }}
 
-      - name: Start server
-        run: npm run start:prod
-
       
