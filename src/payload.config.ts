@@ -7,7 +7,7 @@ import { Media } from './collections/media'
 import { viteBundler } from '@payloadcms/bundler-vite'
 
 export default buildConfig({
-  serverURL: process.env.NEXT_PUBLIC_SERVER_URL!,
+  serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL!,
   collections: [
     Projects,
     Media
