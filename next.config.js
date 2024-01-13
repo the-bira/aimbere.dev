@@ -15,7 +15,7 @@ const nextConfig = {
     ]
   },
   images: {
-    domains: ['project1.com', 'project2.com', 'project3.com', 'localhost:3000', 'localhost'],
+    domains: ['project1.com', 'project2.com', 'project3.com', 'localhost:3000', 'localhost', 'https://aimbere-dev.vercel.app/'],
   }
 }
 
