@@ -7,7 +7,7 @@ import path from 'path'
 import { Media } from './collections/media'
 
 export default buildConfig({
-  serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'aimbere-dev.vercel.app',
+  serverURL: 'https://aimbere-dev.vercel.app',
   collections: [
     Projects,
     Media
