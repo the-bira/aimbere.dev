@@ -9,7 +9,7 @@ interface Project {
   description: string
   url?: string | undefined
   github?: string
-  image?: string
+  image?: any
   createdAt?: string
   updatedAt?: string
 }
