@@ -11,7 +11,7 @@ var path_1 = __importDefault(require("path"));
 var media_1 = require("./collections/media");
 var bundler_vite_1 = require("@payloadcms/bundler-vite");
 exports.default = (0, config_1.buildConfig)({
-    serverURL: 'https://aimberedev.vercel.app',
+    serverURL: process.env.NEXT_PUBLIC_SERVER_URL,
     collections: [
         projects_1.Projects,
         media_1.Media

@@ -42,6 +42,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var get_payload_client_1 = require("./get-payload-client");
 var next_utils_1 = require("./next-utils");
+var build_1 = __importDefault(require("next/dist/build"));
+var path_1 = __importDefault(require("path"));
 var app = (0, express_1.default)();
 var PORT = Number(process.env.PORT) || 3000;
 var start = function () { return __awaiter(void 0, void 0, void 0, function () {
@@ -61,6 +63,24 @@ var start = function () { return __awaiter(void 0, void 0, void 0, function () {
                 })];
             case 1:
                 payload = _a.sent();
+                if (process.env.NEXT_BUILD) {
+                    app.listen(PORT, function () { return __awaiter(void 0, void 0, void 0, function () {
+                        return __generator(this, function (_a) {
+                            switch (_a.label) {
+                                case 0:
+                                    payload.logger.info('Next.js is building for production');
+                                    // @ts-expect-error
+                                    return [4 /*yield*/, (0, build_1.default)(path_1.default.join(__dirname, '../'))];
+                                case 1:
+                                    // @ts-expect-error
+                                    _a.sent();
+                                    process.exit();
+                                    return [2 /*return*/];
+                            }
+                        });
+                    }); });
+                    return [2 /*return*/];
+                }
                 app.use(function (req, res) { return (0, next_utils_1.nextHandler)(req, res); });
                 next_utils_1.nextApp.prepare().then(function () {
                     payload.logger.info('NextJS started');
