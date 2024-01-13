@@ -2,9 +2,9 @@ import { buildConfig } from 'payload/config'
 import { Projects } from './collections/projects'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import {slateEditor} from '@payloadcms/richtext-slate'
-import { webpackBundler } from '@payloadcms/bundler-webpack'
 import path from 'path'
 import { Media } from './collections/media'
+import { viteBundler } from '@payloadcms/bundler-vite'
 
 export default buildConfig({
   serverURL: 'https://aimberedev.vercel.app',
@@ -12,11 +12,8 @@ export default buildConfig({
     Projects,
     Media
   ],
-  routes: {
-    admin: '/manage',
-  },
   admin: {
-    bundler: webpackBundler() 
+    bundler: viteBundler() 
   },
   editor: slateEditor({}),
   db: postgresAdapter({
